@@ -2,7 +2,7 @@
 
 var mpd   = require('mpd'),
     args  = require('minimist')(process.argv.slice(2)),
-    lib   = require('./lib');
+    core  = require('./lib/core');
 
 // console.log('args:', args);
 
@@ -29,7 +29,7 @@ getMPDHostPort(function(host, port) {
 
   client.on('ready', function() {
     // console.log('ready, yo');
-    lib.run(client, args, function(err) {
+    core.run(client, args, function(err) {
       if (err) throw err;
       client.socket.end();
       process.exit();
