@@ -31,20 +31,10 @@ getMPDHostPort(function(host, port) {
     // console.log('ready, yo');
     core.run(client, args, function(err) {
       if (err) throw err;
-      console.log('ending');
+      // console.log('ending');
       client.socket.end();
       process.exit();
     });
   });
 
-  // client.on('system', function(name) {
-  //   console.log('update', name);
-  // });
-  //
-  // client.on('system-player', function() {
-  //   client.sendCommand(mpd.cmd('status', []), function(err, msg) {
-  //     if (err) throw err;
-  //     console.log(msg);
-  //   });
-  // });
 });
