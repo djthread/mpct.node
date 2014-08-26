@@ -1,4 +1,4 @@
-// If this directory exists, caching will be enabled
+// Create this dir for caching
 var cacheDir = process.env['HOME'] + '/.mpct.node';
 
 // For a given genre folder name, this is all the
