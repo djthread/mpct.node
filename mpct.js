@@ -31,6 +31,7 @@ getMPDHostPort(function(host, port) {
     // console.log('ready, yo');
     core.run(client, args, function(err) {
       if (err) throw err;
+      console.log('ending');
       client.socket.end();
       process.exit();
     });
