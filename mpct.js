@@ -1,8 +1,7 @@
 #!/usr/local/bin/node
 
-var mpd   = require('mpd'),
-    args  = require('minimist')(process.argv.slice(2)),
-    core  = require('./lib/core');
+var mpd  = require('mpd'),
+    args = require('minimist')(process.argv.slice(2));
 
 // console.log('args:', args);
 
@@ -27,14 +26,21 @@ getMPDHostPort(function(host, port) {
 
   var client = mpd.connect({host: host, port: port});
 
+  var finish = function(err, out) {
+    if (err) throw err;
+    console.log(out);
+    client.socket.end();
+    process.exit();
+  };
+
   client.on('ready', function() {
-    // console.log('ready, yo');
-    core.run(client, args, function(err) {
-      if (err) throw err;
-      // console.log('ending');
-      client.socket.end();
-      process.exit();
-    });
+
+    if (args['s']) {
+      require('./lib/server').run(client, args, finish);
+    } else {
+      require('./lib/core').run(client, args, finish);
+    }
+
   });
 
 });
