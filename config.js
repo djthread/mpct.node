@@ -1,3 +1,7 @@
+var marantzIp = '192.168.0.180';
+
+var mpcBin = '/usr/bin/mpc';
+
 // Create this dir for caching
 var cacheDir = process.env['HOME'] + '/.mpct.node';
 
@@ -48,6 +52,8 @@ var toplevels = {
 };
 
 
+module.exports.marantzIp = marantzIp;
+module.exports.mpcBin    = mpcBin;
 module.exports.cacheDir  = cacheDir;
 module.exports.locations = locations;
 module.exports.toplevels = toplevels;
