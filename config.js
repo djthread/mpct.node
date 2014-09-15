@@ -14,6 +14,7 @@ var locations = [
   'tmp/stage2/',
   'tmp/stage3/',
   'tmp/stage4/',
+  'tmp/stage5/',
 ];
 
 // My toplevel dir names
