@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/env node
 
 var mpd  = require('mpd'),
     args = require('minimist')(process.argv.slice(2));
