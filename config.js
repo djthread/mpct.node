@@ -1,6 +1,15 @@
+var fs = require('fs');
+
 var marantzIp = '192.168.0.180';
 
-var mpcBin = '/usr/bin/mpc';
+if (fs.existsSync('/usr/bin/mpc')) {
+  var mpcBin = '/usr/bin/mpc';
+} else if (fs.existsSync('/usr/local/bin/mpc')) {
+  var mpcBin = '/usr/local/bin/mpc';
+} else {
+  console.log('mpc not found');
+  process.exit();
+}
 
 // Create this dir for caching
 var cacheDir = process.env['HOME'] + '/.mpct.node';
