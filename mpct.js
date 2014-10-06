@@ -37,7 +37,7 @@ getMPDHostPort(function(host, port) {
       require('./lib/server').run(client, args, finish);
     } else {
       require('./lib/core').run(client, args, function(out) {
-        console.log(out);
+        if (out) console.log(out);
         finish();
       });
     }
