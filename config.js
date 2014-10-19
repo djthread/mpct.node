@@ -1,4 +1,5 @@
-var fs = require('fs');
+var fs   = require('fs'),
+    args = require('minimist')(process.argv.slice(2));
 
 var marantzIp = '192.168.0.180';
 
@@ -12,7 +13,7 @@ if (fs.existsSync('/usr/bin/mpc')) {
 }
 
 // Create this dir for caching
-var cacheDir = process.env['HOME'] + '/.mpct.node';
+var cacheDir = args['c'] || process.env['HOME'] + '/.mpct.node';
 
 // For a given genre folder name, this is all the
 // different places to look. These will prefix
