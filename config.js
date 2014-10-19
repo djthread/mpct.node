@@ -13,7 +13,7 @@ if (fs.existsSync('/usr/bin/mpc')) {
 }
 
 // Create this dir for caching
-var cacheDir = args['c'] || process.env['HOME'] + '/.mpct.node';
+var cacheDir = args['d'] || process.env['HOME'] + '/.mpct.node';
 
 // For a given genre folder name, this is all the
 // different places to look. These will prefix
