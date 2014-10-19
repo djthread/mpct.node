@@ -3,8 +3,9 @@
 var core   = require('./lib/core'),
     server = require('./lib/server')
     mpd    = require('mpd'),
-    args   = require('minimist')(process.argv.slice(2)),
-    host;
+    args   = require('minimist')(process.argv.slice(2));
+
+var host;
 
 // console.log('args:', args);
 
