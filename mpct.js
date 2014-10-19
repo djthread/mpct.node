@@ -3,7 +3,8 @@
 var core   = require('./lib/core'),
     server = require('./lib/server')
     mpd    = require('mpd'),
-    args   = require('minimist')(process.argv.slice(2));
+    args   = require('minimist')(process.argv.slice(2)),
+    host;
 
 // console.log('args:', args);
 
@@ -24,7 +25,7 @@ var getMPDHostPort = function(cb) {
   }
 }
 
-getMPDHostPort(function(host, port) {
+var begin = function(host, port) {
 
   var client = mpd.connect({host: host, port: port});
 
@@ -47,4 +48,10 @@ getMPDHostPort(function(host, port) {
 
   });
 
-});
+};
+
+if ((host = args['host']) || (host = args['h'])) {
+  begin(host, args['port'] || args['p'] || 6600);
+} else {
+  getMPDHostPort(begin);
+}
